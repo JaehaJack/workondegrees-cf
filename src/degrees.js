@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
+import "./degrees.css";
 
 export default function Degrees() {
   let [city, setCity] = useState("");
+  let [celsius, setCelsius] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -18,11 +20,15 @@ export default function Degrees() {
     setCity(response.data.name.value);
   }
 
+  function checkCelsius(response) {
+    setCelsius(response.data.temp);
+  }
+
   return (
     <div className="App">
-      <div className="row my-3 d-flex justify-content-space-evenly">
-        <div className="col-6">
-          <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="d-flex justify-content-center">
+        <div className="row my-3">
+          <div className="col-9">
             <input
               type="search"
               placeholder="Enter a city..."
@@ -30,12 +36,35 @@ export default function Degrees() {
               autoFocus="on"
               onClick={displayCity}
             />
-            <input type="submit" value="Find" />
-          </form>
+          </div>
+          <div className="col-3">
+            <input type="submit" value="Find" className="btn btn-primary" />
+          </div>
+        </div>
+      </form>
+
+      <h1 className="text-center">Baguio City</h1>
+      <ul className="text-center">
+        <li>September 14, 2021 Tuesday 09:00 PM</li>
+        <li>Scattered Thunderstorms</li>
+      </ul>
+
+      <div className="row">
+        <div className="col-6 d-flex justify-content-center">
+          <img
+            src="https://ssl.gstatic.com/onebox/weather/64/rain_s_cloudy.png"
+            alt="scattered thunderstorms"
+          />
+          <p>18 °C</p>
+        </div>
+        <div className="col-6">
+          <ul>
+            <li>Precipitation: 10%</li>
+            <li>Humidity: 90%</li>
+            <li>Wind: 3 km/h</li>
+          </ul>
         </div>
       </div>
-
-      <h1>{city}</h1>
     </div>
   );
 }
