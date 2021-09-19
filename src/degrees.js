@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import FormattedDate from "./formattedDate";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
+
 import "./degrees.css";
 
 export default function Degrees(props) {
   let [weatherInquiry, setWeatherInquiry] = useState({ ready: false });
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherInquiry({
       ready: true,
       temperature: Math.round(response.data.main.temp),
@@ -17,6 +18,7 @@ export default function Degrees(props) {
       wind: response.data.wind.speed,
       city: response.data.name,
       icon: response.data.weather[0].icon,
+      date: new Date(response.data.dt * 1000),
     });
   }
 
@@ -41,7 +43,9 @@ export default function Degrees(props) {
 
         <h1 className="text-center">{weatherInquiry.city}</h1>
         <ul className="text-center">
-          <li>September 14, 2021 Tuesday 09:00 PM</li>
+          <li>
+            <FormattedDate dates={weatherInquiry.date} />
+          </li>
           <li>{weatherInquiry.description}</li>
         </ul>
 
