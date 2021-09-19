@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="wrapper">
       <div className="container my-3 p-2">
-        <Degrees />
+        <Degrees defaultCity="Berlin" />
       </div>
       <p className="text-center">
         This is coded by <a href="/">Jazmi C.</a> and is{" "}
