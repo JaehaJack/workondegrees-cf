@@ -1,3 +1,8 @@
 li {
   list-style: none;
 }
+
+.numericTemp {
+  font-size: 56px;
+  font-weight: 400;
+}
