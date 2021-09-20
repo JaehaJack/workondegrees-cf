@@ -9,7 +9,7 @@ function App() {
       </div>
       <p className="text-center">
         This is coded by <a href="/">Jazmi C.</a> and is{" "}
-        <a href="/" target="_blank">
+        <a href="https://github.com/JaehaJack/workondegrees-cf" target="_blank">
           open-sourced in Github
         </a>
       </p>
