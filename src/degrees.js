@@ -61,6 +61,7 @@ export default function Degrees(props) {
       </div>
     );
   } else {
-    return locate();
+    locate();
+    return "Loading....";
   }
 }
