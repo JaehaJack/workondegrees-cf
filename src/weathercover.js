@@ -17,7 +17,7 @@ export default function WeatherCover(props) {
       <div className="row">
         <div className="col-6 d-flex justify-content-center">
           <img
-            src={props.info.icon}
+            src={props.info.iconUrl}
             alt={props.info.description}
             className="float-left"
           />
