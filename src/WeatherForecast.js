@@ -2,9 +2,13 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import WeatherForecastDay from "./WeatherForecastDay";
 
-export default function WeatherForecast() {
+export default function WeatherForecast(props) {
   let [forecast, setForecast] = useState(null);
   let [acquired, setAcquired] = useState(false);
+
+  useEffect(() => {
+    setAcquired(false);
+  }, [props.coordinates]);
 
   function handleResponse(response) {
     console.log(response.data);
@@ -20,10 +24,6 @@ export default function WeatherForecast() {
 
     axios.get(apiUrl).then(handleResponse);
   }
-
-  useEffect(() => {
-    setAcquired(false);
-  }, [props.coordinates]);
 
   if (acquired) {
     return (

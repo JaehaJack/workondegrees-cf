@@ -1,9 +1,8 @@
 import React from "react";
-import Degrees from ".degrees";
 
 export default function WeatherForecastDay(props) {
   function Day() {
-    let date = new Dater(props.data.dt * 1000);
+    let date = new Date(props.data.dt * 1000);
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     let day = date.getDay();
 
@@ -22,12 +21,16 @@ export default function WeatherForecastDay(props) {
     return `${temperature}°`;
   }
 
+  function weatherIcon(response) {
+    let iconUrl = response.data.weather[0].icon;
+
+    return `${iconUrl}`;
+  }
+
   return (
     <div className="weatherForecastDay">
       <div className="weatherForecastDay-day">{Day()}</div>
-      <div className="weatherForecastDay-icon">
-        <Degrees code={weatherInquiry.IconUrl} size={32} />
-      </div>
+      <div className="weatherForecastDay-icon">{weatherIcon()}</div>
       <div className="weatherForecastDay-temperature">
         <span className="weatherForecastDay-temperature-max">
           {maxTemperature()}
