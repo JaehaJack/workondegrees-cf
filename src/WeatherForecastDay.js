@@ -9,20 +9,20 @@ export default function WeatherForecastDay(props) {
     return day[days];
   }
 
-  function maxTemperature(response) {
+  function maxTemperature() {
     let temperature = Math.round(props.data.temp.max);
 
     return `${temperature}°`;
   }
 
-  function minTemperature(response) {
+  function minTemperature() {
     let temperature = Math.round(props.data.temp.min);
 
     return `${temperature}°`;
   }
 
   function weatherIcon(response) {
-    let iconUrl = response.data.weather[0].icon;
+    let iconUrl = response.data.daily.weather[0].icon;
 
     return `${iconUrl}`;
   }
