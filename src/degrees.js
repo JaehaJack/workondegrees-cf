@@ -28,6 +28,7 @@ export default function Degrees(props) {
   function handleResponse(response) {
     setWeatherInquiry({
       ready: true,
+      coordinates: response.data.coord,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,

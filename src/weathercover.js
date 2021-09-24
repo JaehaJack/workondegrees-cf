@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./formattedDate";
 import WeatherTemperature from "./weatherTemperature";
+import WeatherForecast from "./WeatherForecast";
 
 import "./degrees.css";
 
@@ -21,6 +22,7 @@ export default function WeatherCover(props) {
             src={props.info.iconUrl}
             alt={props.info.description}
             className="float-left"
+            size={52}
           />
           <p className="numericTemp float-right">
             <WeatherTemperature celsius={props.info.temperature} />
@@ -33,6 +35,7 @@ export default function WeatherCover(props) {
           </ul>
         </div>
       </div>
+      <WeatherForecast coordinates={props.info.coordinates} />
     </div>
   );
 }
