@@ -1,12 +1,13 @@
 import React from "react";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherForecastDay(props) {
   function Day() {
-    let date = new Date(props.data.dt * 1000);
+    let now = new Date(props.data.dt * 1000);
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    let day = date.getDay();
+    let day = now.getDay();
 
-    return day[days];
+    return days[day];
   }
 
   function maxTemperature() {
@@ -21,23 +22,17 @@ export default function WeatherForecastDay(props) {
     return `${temperature}°`;
   }
 
-  function weatherIcon(response) {
-    let iconUrl = response.data.daily.weather[0].icon;
-
-    return `${iconUrl}`;
-  }
-
   return (
-    <div>
-      <div className="weatherForecastDay-day">{Day()}</div>
-      <div className="weatherForecastDay-icon">{weatherIcon()}</div>
-      <div className="weatherForecastDay-temperature">
-        <span className="weatherForecastDay-temperature-max">
-          {maxTemperature()}
-        </span>
-        <span className="weatherForecastDay-temperature-min">
-          {minTemperature()}
-        </span>
+    <div className="row text-center d-flex justify-content-space-between">
+      <div className="col">
+        <div className="weatherForecastDay">{Day()}</div>
+        <div className="weatherForecastIcon">
+          <WeatherIcon pic={props.data.weather[0].icon} size={32} />
+        </div>
+        <div className="weatherForecastIemperature">
+          <span className="weatherForecastTempMax">{maxTemperature()}</span> |{" "}
+          <span className="weatherForecastDayTempMin">{minTemperature()}</span>
+        </div>
       </div>
     </div>
   );

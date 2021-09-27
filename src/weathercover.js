@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./formattedDate";
 import WeatherForecast from "./WeatherForecast";
+import WeatherIcon from "./WeatherIcon";
 
 import "./degrees.css";
 
@@ -16,15 +17,16 @@ export default function WeatherCover(props) {
       </ul>
 
       <div className="row">
-        <div className="col-6 d-flex justify-content-center">
-          <img
-            src={props.info.iconUrl}
-            alt={props.info.description}
-            className="float-left"
-            size={52}
-          />
-          <p className="numericTemp float-right">
-            `{Math.round(props.info.temperature)} °C`
+        <div className="col-6 d-flex justify-content-center clearfix">
+          <div className="float-left">
+            <WeatherIcon
+              pic={props.info.iconUrl}
+              alt={props.info.description}
+              size={52}
+            />
+          </div>
+          <p className="numericTemp float-right font-size-60">
+            {Math.round(props.info.temperature)} °C
           </p>
         </div>
         <div className="col-6">

@@ -34,7 +34,7 @@ export default function Degrees(props) {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       city: response.data.name,
-      iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      iconUrl: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
     });
   }
