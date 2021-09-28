@@ -18,14 +18,14 @@ export default function WeatherCover(props) {
 
       <div className="row">
         <div className="col-6 d-flex justify-content-center clearfix">
-          <div className="float-left">
+          <div>
             <WeatherIcon
               pic={props.info.iconUrl}
               alt={props.info.description}
-              size={52}
+              size={72}
             />
           </div>
-          <p className="numericTemp float-right font-size-60">
+          <p className="numericTemp float-right font-size-48">
             {Math.round(props.info.temperature)} °C
           </p>
         </div>
@@ -36,6 +36,7 @@ export default function WeatherCover(props) {
           </ul>
         </div>
       </div>
+      <hr />
       <WeatherForecast coordinates={props.info.coordinates} />
     </div>
   );

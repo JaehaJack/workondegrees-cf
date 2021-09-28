@@ -1,8 +1,14 @@
-li {
+:root li {
   list-style: none;
 }
 
 .numericTemp {
   font-size: 36px;
   font-weight: 370;
+}
+
+.weatherCover h1 {
+  font-size: xx-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
 }

@@ -8,13 +8,29 @@ function App() {
         <Degrees defaultCity="Berlin" />
       </div>
       <p className="text-center">
-        This is coded by <a href="/">Jazmi C.</a> and is{" "}
+        This is coded by{" "}
+        <a
+          href="https://romantic-ritchie-f33c95.netlify.app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Jazmi C.
+        </a>{" "}
+        It is{" "}
         <a
           href="https://github.com/JaehaJack/workondegrees-cf"
           target="_blank"
           rel="noreferrer"
         >
           open-sourced in Github
+        </a>{" "}
+        and is{" "}
+        <a
+          href="https://zealous-ramanujan-655ce9.netlify.app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          hosted on netlify.
         </a>
       </p>
     </div>
